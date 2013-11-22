@@ -1,3 +1,9 @@
+// Need to define MYSQLPP_MYSQL_HEADERS_BURIED as the mysql++ is installed on the same level as the mysql c library
+#define MYSQLPP_MYSQL_HEADERS_BURIED
+
+#include <mysql/mysql.h>
+#include <mysql++/mysql++.h>
+
 #include <boost/filesystem.hpp>
 #include <boost/tokenizer.hpp>
 #include <boost/algorithm/string.hpp>
@@ -101,6 +107,8 @@ vector<string> readCSVFile(string filename) {
 int main(int argc, char** argv) {
 
 	string folder = argv[1];
+	string filename;
+	string ext;
 	
 	boost::filesystem::directory_iterator dirItr(folder);
 
